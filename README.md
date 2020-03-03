@@ -28,3 +28,34 @@ This will build the Doodle for these architectures:
 - linux/s390x (for mainframe lovers)
 - linux/ppc64le (for IBM POWER8 Little Endian)
 - windows/amd64 (64 bit Windows native)
+
+### Notes
+
+A Docker image is a private filesystem, just for your container. It provides all the files and code your container will need. Running the docker build command creates a Docker image using the Dockerfile. This built image is in your machine's local Docker image registry.
+
+Mac: 
+```
+cd doodle/cheers2019 && docker build -t coreyhammond/cheers2019 .
+```
+
+Windows:
+cd doodle\cheers2019 ; docker build -t coreyhammond/cheers2019 .
+```
+
+Running a container launches your software with private resources, securely isolated from the rest of your machine.
+
+```
+docker run -it --rm coreyhammond/cheers2019
+```
+
+Once you're ready to share your container with the world, push the image that describes it to Docker Hub.
+
+Mac:
+```
+docker login && docker push coreyhammond/cheers2019
+```
+
+Windows:
+```
+docker login ; docker push coreyhammond/cheers2019
+```
